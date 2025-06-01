@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-users-table
+      author: mghoulami
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: key
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: address
+                  type: VARCHAR(255)

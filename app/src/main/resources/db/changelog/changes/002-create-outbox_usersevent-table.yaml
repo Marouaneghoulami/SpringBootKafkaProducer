@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-outbox_userevent-table
+      author: mghoulami
+      changes:
+        - createTable:
+            tableName: outbox_userevent
+            columns:
+              - column:
+                  name: key
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: aggregate_type
+                  type: VARCHAR(100)
+              - column:
+                  name: aggregate_id
+                  type: BIGINT
+              - column:
+                  name: event_type
+                  type: VARCHAR(100)
+              - column:
+                  name: payload
+                  type: TEXT
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
